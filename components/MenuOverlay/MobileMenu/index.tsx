@@ -59,8 +59,8 @@ const MobileMenu: React.FC<Props> = (props) => {
   const { show, ...rest } = props;
   return (
     <Wrapper {...rest} show={show}>
-      {ROUTES.map(({ label, path }) => (
-        <MobileMenuItem label={label} path={path} />
+      {ROUTES.map(({ label, path }, index) => (
+        <MobileMenuItem key={index} label={label} path={path} />
       ))}
     </Wrapper>
   );
