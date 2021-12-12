@@ -1,62 +1,53 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import {
-  UIEventHandler,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import styled, { css } from "styled-components";
-import Background from "../components/Background";
-import MenuOverlay from "../components/MenuOverlay";
-import PageTitle from "../components/PageTitle";
-import TerminalWindow from "../components/TerminalWindow";
-import { horizontalContentPadding } from "../styles/mixins/pageContent";
-import {
-  pagePaddingBottom,
-  pagePaddingTop,
-} from "../styles/mixins/pagePadding";
+import { UIEventHandler, useCallback, useEffect, useRef, useState } from 'react'
+import styled, { css } from 'styled-components'
+import Background from '../components/Background'
+import MenuOverlay from '../components/MenuOverlay'
+import PageTitle from '../components/PageTitle'
+import TerminalWindow from '../components/TerminalWindow'
+import { horizontalContentPadding } from '../styles/mixins/pageContent'
+import { pagePaddingBottom, pagePaddingTop } from '../styles/mixins/pagePadding'
 
 const COPY = {
-  title: "welcome to rc3\nnow/here",
-};
+  title: 'welcome to rc3\nnow/here',
+}
 const TERMINALS = {
   world: {
-    title: "world",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore est sunt laboriosam iusto commodi optio omnis officia exercitationem cum recusandae in nisi nobis, praesentium similique earum obcaecati. Fugit, excepturi ad?",
+    title: 'world',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore est sunt laboriosam iusto commodi optio omnis officia exercitationem cum recusandae in nisi nobis, praesentium similique earum obcaecati. Fugit, excepturi ad?',
     link: {
-      label: "explore",
-      href: "https://google.com",
+      label: 'explore',
+      href: 'https://google.com',
     },
   },
   platform: {
-    title: "platform",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore est sunt laboriosam iusto commodi optio omnis officia exercitationem cum recusandae in nisi nobis, praesentium similique earum obcaecati. Fugit, excepturi ad?",
+    title: 'platform',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore est sunt laboriosam iusto commodi optio omnis officia exercitationem cum recusandae in nisi nobis, praesentium similique earum obcaecati. Fugit, excepturi ad?',
   },
   community: {
-    title: "community",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore est sunt laboriosam iusto commodi optio omnis officia exercitationem cum recusandae in nisi nobis, praesentium similique earum obcaecati. Fugit, excepturi ad?",
+    title: 'community',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore est sunt laboriosam iusto commodi optio omnis officia exercitationem cum recusandae in nisi nobis, praesentium similique earum obcaecati. Fugit, excepturi ad?',
     link: {
-      label: "explore",
-      href: "https://google.com",
+      label: 'explore',
+      href: 'https://google.com',
     },
   },
-};
+}
 
 const Home: NextPage = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [headerHeight, setHeaderHeight] = useState(100);
-  const [relativeVerticalScroll, setRelativeVerticalScroll] = useState(0);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [headerHeight, setHeaderHeight] = useState(100)
+  const [relativeVerticalScroll, setRelativeVerticalScroll] = useState(0)
+  const contentRef = useRef<HTMLDivElement>(null)
 
   const handleContentScroll: UIEventHandler<HTMLDivElement> = useCallback(
     (e) => {
-      const { scrollHeight, clientHeight, scrollTop } = e.currentTarget;
-      setRelativeVerticalScroll(scrollTop / (scrollHeight - clientHeight));
+      const { scrollHeight, clientHeight, scrollTop } = e.currentTarget
+      setRelativeVerticalScroll(scrollTop / (scrollHeight - clientHeight))
     },
     []
-  );
+  )
 
   return (
     <Wrapper>
@@ -99,14 +90,14 @@ const Home: NextPage = () => {
         </TerminalWindow>
       </PageContent>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
 
 const Wrapper = styled.div`
   max-height: 100%;
-`;
+`
 
 const PageContent = styled.main<{ blur?: boolean }>`
   position: absolute;
@@ -134,8 +125,8 @@ const PageContent = styled.main<{ blur?: boolean }>`
       filter: blur(5px);
       transform: scale(0.98);
     `}
-`;
+`
 const ShadowHeader = styled.div<{ height: number }>`
-  content: "";
+  content: '';
   height: ${(p) => p.height}px;
-`;
+`

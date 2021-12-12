@@ -1,5 +1,5 @@
-import { HTMLAttributes } from "react";
-import styled from "styled-components";
+import { HTMLAttributes } from 'react'
+import styled from 'styled-components'
 
 const Wrapper = styled.section`
   border: 1px solid white;
@@ -17,26 +17,26 @@ const Wrapper = styled.section`
     display: flex;
     flex-direction: column;
     > .terminal-window__cta {
-      font-family: "Changa", sans-serif;
+      font-family: 'Changa', sans-serif;
       align-self: center;
       font-weight: bold;
       margin: 16px 0 8px;
     }
   }
-`;
+`
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  title: string;
+  title: string
 }
 
 const TerminalWindow: React.FC<Props> = (props) => {
-  const { title, children, className, ...rest } = props;
+  const { title, children, className, ...rest } = props
   return (
-    <Wrapper {...rest} className={"terminal-window " + className}>
+    <Wrapper {...rest} className={'terminal-window ' + className}>
       <h2>{title}</h2>
       <div className="terminal-window__content">{children}</div>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default TerminalWindow;
+export default TerminalWindow

@@ -1,37 +1,37 @@
-import { HTMLAttributes } from "react";
-import styled, { css } from "styled-components";
-import MobileMenuItem from "./MobileMenuItem";
+import { HTMLAttributes } from 'react'
+import styled, { css } from 'styled-components'
+import MobileMenuItem from './MobileMenuItem'
 
 const ROUTES = [
   {
-    label: "world",
-    path: "/",
+    label: 'world',
+    path: '/',
   },
   {
-    label: "platform",
-    path: "/",
+    label: 'platform',
+    path: '/',
   },
   {
-    label: "wiki",
-    path: "/",
+    label: 'wiki',
+    path: '/',
   },
   {
-    label: "news",
-    path: "/",
+    label: 'news',
+    path: '/',
   },
   {
-    label: "plan",
-    path: "/",
+    label: 'plan',
+    path: '/',
   },
   {
-    label: "board",
-    path: "/",
+    label: 'board',
+    path: '/',
   },
   {
-    label: "messages",
-    path: "/",
+    label: 'messages',
+    path: '/',
   },
-];
+]
 const Wrapper = styled.nav<{ show?: boolean }>`
   transition: all 0.5s linear;
   > :not(:first-child) {
@@ -49,21 +49,21 @@ const Wrapper = styled.nav<{ show?: boolean }>`
           transform: scale(1.1);
           pointer-events: none;
         `}
-`;
+`
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  show?: boolean;
+  show?: boolean
 }
 
 const MobileMenu: React.FC<Props> = (props) => {
-  const { show, ...rest } = props;
+  const { show, ...rest } = props
   return (
     <Wrapper {...rest} show={show}>
       {ROUTES.map(({ label, path }, index) => (
         <MobileMenuItem key={index} label={label} path={path} />
       ))}
     </Wrapper>
-  );
-};
+  )
+}
 
-export default MobileMenu;
+export default MobileMenu

@@ -1,11 +1,11 @@
-import { HTMLAttributes } from "react";
-import styled, { css } from "styled-components";
+import { HTMLAttributes } from 'react'
+import styled, { css } from 'styled-components'
 import {
   horizontalContentPadding,
   RELATIVE_HORIZONTAL_PADDING,
-} from "../../styles/mixins/pageContent";
-import Header from "../Header";
-import MobileMenu from "./MobileMenu";
+} from '../../styles/mixins/pageContent'
+import Header from '../Header'
+import MobileMenu from './MobileMenu'
 
 const Wrapper = styled.div<{ open?: boolean }>`
   position: fixed;
@@ -26,30 +26,30 @@ const Wrapper = styled.div<{ open?: boolean }>`
       background-color: rgba(0, 0, 0, 0.75);
       height: 100vh;
     `}
-`;
+`
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  open: boolean;
-  onChangeOpen: (open: boolean) => any;
-  onHeaderHeightChange: (headerHeight: number) => any;
+  open: boolean
+  onChangeOpen: (open: boolean) => any
+  onHeaderHeightChange: (headerHeight: number) => any
 }
 
 const MenuOverlay: React.FC<Props> = (props) => {
-  const { open, onChangeOpen, onHeaderHeightChange, ...rest } = props;
+  const { open, onChangeOpen, onHeaderHeightChange, ...rest } = props
   return (
     <Wrapper {...rest} open={open}>
       <Header
         open={open}
         onChangeOpen={onChangeOpen}
         onSize={({ height }) => {
-          console.log(height);
+          console.log(height)
 
-          onHeaderHeightChange(height || 100);
+          onHeaderHeightChange(height || 100)
         }}
       />
       <MobileMenu show={open} />
     </Wrapper>
-  );
-};
+  )
+}
 
-export default MenuOverlay;
+export default MenuOverlay

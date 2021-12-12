@@ -6,7 +6,7 @@ body {
   height: 100vh;
   color: white;
 }
-#__next{
+#__next {
   height: 100%;
 }
 a {
@@ -18,12 +18,18 @@ a {
   box-sizing: border-box;
 }
 
-h1,h2,h3,h4,h5,h6{
-  margin:0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
   font-family: 'Changa', sans-serif;
   line-height: 100%;
 }
 h1 {
   font-size: 48px;
 }
-h2 {}
+h2 {
+}
