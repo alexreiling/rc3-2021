@@ -11,21 +11,25 @@ const Wrapper = styled.div<{ open?: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
+  height: 100vh;
+
   max-height: 100vh;
   width: 100vw;
   padding-top: ${RELATIVE_HORIZONTAL_PADDING * 100}vw;
   z-index: 10;
   pointer-events: none;
-
+  transition: background-color 0.5s ease-out;
   > * {
     ${horizontalContentPadding};
   }
   ${(p) =>
-    p.open &&
-    css`
-      background-color: rgba(0, 0, 0, 0.75);
-      height: 100vh;
-    `}
+    p.open
+      ? css`
+          background-color: rgba(0, 0, 0, 0.75);
+        `
+      : css`
+          background-color: rgba(0, 0, 0, 0);
+        `}
 `
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
